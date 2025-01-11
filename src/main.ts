@@ -27,4 +27,13 @@ const config: Types.Core.GameConfig = {
     ]
 };
 
+/**
+ * The web font config variable has to exist before the game loads.
+ */
+export const WEB_FONT_CONFIG = {
+    google: {
+        families: ['Press Start 2P'],
+    },
+};
+
 export default new Game(config);
