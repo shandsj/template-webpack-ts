@@ -1,27 +1,29 @@
-import { Scene, GameObjects } from 'phaser';
+import { Scene } from 'phaser';
 
-export class MainMenu extends Scene
-{
-    background: GameObjects.Image;
-    logo: GameObjects.Image;
-    title: GameObjects.Text;
+const BACKGROUND_X = 512;
+const BACKGROUND_Y = 384;
+const LOGO_X = 512;
+const LOGO_Y = 300;
+const TEXT_X = 512;
+const TEXT_Y = 460;
+const TEXT_ORIGIN = .5;
 
-    constructor ()
-    {
+export class MainMenu extends Scene {
+
+    public constructor() {
         super('MainMenu');
     }
 
-    create ()
-    {
-        this.background = this.add.image(512, 384, 'background');
+    public create(): void {
+        this.add.image(BACKGROUND_X, BACKGROUND_Y, 'background');
 
-        this.logo = this.add.image(512, 300, 'logo');
+        this.add.image(LOGO_X, LOGO_Y, 'logo');
 
-        this.title = this.add.text(512, 460, 'Main Menu', {
+        this.add.text(TEXT_X, TEXT_Y, 'Main Menu', {
             fontFamily: '"Press Start 2P"', fontSize: 38, color: '#ffffff',
             stroke: '#000000', strokeThickness: 8,
             align: 'center'
-        }).setOrigin(0.5);
+        }).setOrigin(TEXT_ORIGIN);
 
         this.input.once('pointerdown', () => {
 
