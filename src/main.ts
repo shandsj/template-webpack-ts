@@ -1,4 +1,6 @@
 import { Boot } from './scenes/Boot';
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
+import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin';
 import { Game as MainGame } from './scenes/Game';
 import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
@@ -19,6 +21,17 @@ const config: Types.Core.GameConfig = {
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    plugins: {
+        scene: [{
+            key: 'rexUI',
+            plugin: UIPlugin,
+            mapping: 'rexUI',
+        },{
+            key: 'rexGestures',
+            plugin: GesturesPlugin,
+            mapping: 'rexGestures',
+        }],
     },
     scene: [
         Boot,
